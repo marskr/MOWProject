@@ -17,5 +17,5 @@ obtainedData <- RxSqlServerData(sqlQuery = inputQuery, colClasses = c(CELL_ID = 
                                                                       OPERATING_SYSTEM = "string"
                                                                       ), connectionString = connStr);
 
-#transformedData <- rxDataStep(obtainedData);
+transformedData <- rxDataStep(inData = obtainedData);
 
