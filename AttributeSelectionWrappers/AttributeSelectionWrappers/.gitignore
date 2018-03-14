@@ -37,3 +37,6 @@ rsconnect/
 
 # R files not important in project
 ExtractDataModule.R
+LoadDataModule.R
+
+*DataModule.R
