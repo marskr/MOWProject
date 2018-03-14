@@ -1,5 +1,5 @@
 # Connection string to sql server
-connStr <- paste("Driver=SQL Server;Server=", "DESKTOP-8MRGK1B", ";Database=", "MASTER_2018", ";uid=mining_guest;pwd=Mining_18;", sep = "");
+connStr = paste("Driver=SQL Server;Server=", "DESKTOP-8MRGK1B", ";Database=", "MASTER_2018", ";uid=mining_guest;pwd=Mining_18;", sep = "");
 
 inputQuery <- "SELECT TOP (1000) [CELL_ID]
       ,[DSLS_SERVER]
