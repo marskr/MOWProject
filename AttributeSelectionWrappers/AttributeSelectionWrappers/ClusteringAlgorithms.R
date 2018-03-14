@@ -6,24 +6,24 @@ transformedData = transformedData %>% na.omit()
 head(transformedData,5)
 
 # display unique classes in  row 1,2,3,4,5,6:
-overallRows = length(unique(transformedData[, 1]))
-typesServersNo = length(unique(transformedData[, 2]))
-typesLicsNo = length(unique(transformedData[, 3]))
-typesCountriesNo = length(unique(transformedData[, 4]))
-typesContinentsNo = length(unique(transformedData[, 5]))
-typesOSNo = length(unique(transformedData[, 6]))
+overallRows = length(unique(transformedData$CELL_ID))
+typesServersNo = length(unique(transformedData$DSLS_SERVER))
+typesLicsNo = length(unique(transformedData$LIC_TYPE))
+typesCountriesNo = length(unique(transformedData$COUNTRY))
+typesContinentsNo = length(unique(transformedData$CONTINENT))
+typesOSNo = length(unique(transformedData$OPERATING_SYSTEM))
 
-uniqueServers = unique(transformedData[, 2])
-uniqueLics = unique(transformedData[, 3])
-uniqueCountries = unique(transformedData[, 4])
-uniqueContinents = unique(transformedData[, 5])
-uniqueOS = unique(transformedData[, 6])
+uniqueServers = unique(transformedData$DSLS_SERVER)
+uniqueLics = unique(transformedData$LIC_TYPE)
+uniqueCountries = unique(transformedData$COUNTRY)
+uniqueContinents = unique(transformedData$CONTINENT)
+uniqueOS = unique(transformedData$OPERATING_SYSTEM)
 
-minedDataFrame = data.frame(servers = c(transformedData[, 2]),
-                            lics = c(transformedData[, 3]),
-                            countries = c(transformedData[, 4]),
-                            continents = c(transformedData[, 5]),
-                            OS = c(transformedData[, 6]),
+minedDataFrame = data.frame(servers = c(transformedData$DSLS_SERVER),
+                            lics = c(transformedData$LIC_TYPE),
+                            countries = c(transformedData$COUNTRY),
+                            continents = c(transformedData$CONTINENT),
+                            OS = c(transformedData$OPERATING_SYSTEM),
                             stringsAsFactors = FALSE)
 
 minedDataFrame$servers.num = as.numeric(factor(minedDataFrame$servers, levels = c(uniqueServers))) 
@@ -49,8 +49,8 @@ plot(1:10, wss, type = "b", xlab = "Number of Clusters", ylab = "Within groups s
 # Set.seed for random number generator for predictability
 set.seed(10);
 
-# Generate clusters using rxKmeans and output key / cluster to a table in SQL Server called return_cluster
-clust <- rxKmeans(~servers.num + lics.num + countries.num + continents.num + OS.num, droppedStringMDF, numClusters = 6
-         , outFile = return_cluster, outColName = "cluster")
+# Generate clusters using rxKmeans and output key 
+clust <- rxKmeans(~servers.num + lics.num + countries.num + continents.num + OS.num, droppedStringMDF,
+                  numClusters = 6, outFile = NULL)
 
 clusplot(droppedStringMDF, clust$cluster, color = TRUE, shade = TRUE, labels = 4, lines = 0, plotchar = TRUE);
