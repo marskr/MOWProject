@@ -2,8 +2,29 @@ library(magrittr)
 library(cluster);
 source("ExtractDataModule.R")
 
+clusterResultFile = "C:/GithubRepos/MOWProject/AttributeSelectionWrappers/AttributeSelectionWrappers/clusteringResult.txt"
+
+writeAllCluster = function(clust) {
+    write("\n*****CENTERS***** \n", clusterResultFile, sep = '\t', append = FALSE)
+    write(clust$centers, clusterResultFile, sep = '\t', append = TRUE)
+    writeToFile("\n*****SIZE***** \n", clust$size)
+    writeToFile("\n*****WITHINSS***** \n", clust$withinss)
+    writeToFile("\n*****VALID.OBS***** \n", clust$valid.obs)
+    writeToFile("\n*****MISSING.OBS***** \n", clust$missing.obs)
+    writeToFile("\n*****NUM_ITERATIONS***** \n", clust$numIterations)
+    writeToFile("\n*****TOT.WITHINSS***** \n", clust$tot.withinss)
+    writeToFile("\n*****TOTSS***** \n", clust$totss)
+    writeToFile("\n*****BETWEENSS***** \n", clust$betweenss)
+    writeToFile("\n*****CLUSTER***** \n", clust$cluster)
+}
+
+writeToFile = function(resName, resPart) {
+    write(resName, fileToWrite, sep = '\t', append = TRUE)
+    write(resPart, fileToWrite, sep = '\t', append = TRUE)
+}
+
 transformedData = transformedData %>% na.omit()
-head(transformedData,5)
+# head(transformedData,5)
 
 # display unique classes in  row 1,2,3,4,5,6:
 overallRows = length(unique(transformedData$CELL_ID))
@@ -53,4 +74,7 @@ set.seed(10);
 clust <- rxKmeans(~servers.num + lics.num + countries.num + continents.num + OS.num, droppedStringMDF,
                   numClusters = 6, outFile = NULL)
 
+writeAllCluster(clust)
+
 clusplot(droppedStringMDF, clust$cluster, color = TRUE, shade = TRUE, labels = 4, lines = 0, plotchar = TRUE);
+
