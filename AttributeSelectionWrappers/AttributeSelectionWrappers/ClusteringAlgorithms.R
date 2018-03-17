@@ -2,11 +2,15 @@ library(magrittr)
 library(cluster);
 source("ExtractDataModule.R")
 
+# saving to file settings
 clusterResultFile = "C:/GithubRepos/MOWProject/AttributeSelectionWrappers/AttributeSelectionWrappers/clusteringResult.txt"
+separator = '\t'
+appending = TRUE
 
+# method that saves cluster calculated data to a given file
 writeAllCluster = function(clust) {
-    write("\n*****CENTERS***** \n", clusterResultFile, sep = '\t', append = FALSE)
-    write(clust$centers, clusterResultFile, sep = '\t', append = TRUE)
+    write("\n*****CENTERS***** \n", clusterResultFile, sep = '\t', append = !appending)
+    write(clust$centers, clusterResultFile, sep = separator, append = appending)
     writeToFile("\n*****SIZE***** \n", clust$size)
     writeToFile("\n*****WITHINSS***** \n", clust$withinss)
     writeToFile("\n*****VALID.OBS***** \n", clust$valid.obs)
@@ -19,8 +23,8 @@ writeAllCluster = function(clust) {
 }
 
 writeToFile = function(resName, resPart) {
-    write(resName, fileToWrite, sep = '\t', append = TRUE)
-    write(resPart, fileToWrite, sep = '\t', append = TRUE)
+    write(resName, clusterResultFile, sep = separator, append = appending)
+    write(resPart, clusterResultFile, sep = separator, append = appending)
 }
 
 transformedData = transformedData %>% na.omit()
@@ -53,11 +57,13 @@ minedDataFrame$countries.num = as.numeric(factor(minedDataFrame$countries, level
 minedDataFrame$continents.num = as.numeric(factor(minedDataFrame$continents, levels = c(uniqueContinents)))
 minedDataFrame$OS.num = as.numeric(factor(minedDataFrame$OS, levels = c(uniqueOS)))
 
-head(minedDataFrame, 5)
+# head(minedDataFrame, 5)
+# rxGetInfo(minedDataFrame, getVarInfo = TRUE, numRows = 3)
 
+# drop non numeric columns
 droppedStringMDF = minedDataFrame[, 6:10]
 
-head(droppedStringMDF, 5)
+# head(droppedStringMDF, 5)
 
 # determine number of clusters
 wss <- (nrow(droppedStringMDF) - 1) * sum(apply(droppedStringMDF, 2, var))
