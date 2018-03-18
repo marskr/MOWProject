@@ -3,7 +3,6 @@ library(cluster);
 source("ExtractDataModule.R")
 
 # saving to file settings
-clusterResultFile = "C:/GithubRepos/MOWProject/AttributeSelectionWrappers/AttributeSelectionWrappers/clusteringResult.txt"
 separator = '\t'
 appending = TRUE
 
@@ -77,10 +76,21 @@ plot(1:10, wss, type = "b", xlab = "Number of Clusters", ylab = "Within groups s
 set.seed(10);
 
 # Generate clusters using rxKmeans and output key 
-clust <- rxKmeans(~servers.num + lics.num + countries.num + continents.num + OS.num, droppedStringMDF,
+clustRXKMEANS <- rxKmeans(~servers.num + lics.num + countries.num + continents.num + OS.num, droppedStringMDF,
                   numClusters = 6, outFile = NULL)
 
-writeAllCluster(clust)
+clusterResultFile = "C:/GithubRepos/MOWProject/AttributeSelectionWrappers/AttributeSelectionWrappers/clusteringRXKMEANS.txt"
 
-clusplot(droppedStringMDF, clust$cluster, color = TRUE, shade = TRUE, labels = 4, lines = 0, plotchar = TRUE);
+writeAllCluster(clustRXKMEANS)
+
+clusplot(droppedStringMDF, clustRXKMEANS$cluster, color = TRUE, shade = TRUE, labels = 4, lines = 0, plotchar = TRUE);
+
+set.seed(10);
+
+clustKMEANS <- kmeans(droppedStringMDF, 6)
+
+clusterResultFile = "C:/GithubRepos/MOWProject/AttributeSelectionWrappers/AttributeSelectionWrappers/clusteringKMEANS.txt"
+
+writeAllCluster(clustKMEANS)
+
 
