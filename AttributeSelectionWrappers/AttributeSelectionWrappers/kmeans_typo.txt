@@ -78,12 +78,18 @@ print  (x, header = TRUE, ...)
 
 ARGUMENTS:
 
-formula - 
+formula - the formula that specifies which variables you would like to include in the clustering algorithm.
+		  They are a powerful, general-purpose tool that allows you to capture two things:
+
+> An unevaluated expression, 
+> The context or environment in which the expression was created.
 
 data - a data source object, a character string specifying a .xdf file, or a data frame object. 
+	   The dataset in which to search for variables included in formula.
 
 outFile - either an RxXdfData data source object or a character string specifying the .xdf file 
 		  for storing the resulting cluster indexes. If NULL, then no cluster indexes are stored to disk.
+		  The dataset in which you would like to write the cluster IDs.
 
 outColName = ".rxCluster" - character string to be used as a column name for the resulting cluster indexes
 							if outFile is not NULL.
