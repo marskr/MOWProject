@@ -29,14 +29,6 @@ writeAllCluster = function(clust) {
 preprocessData = function(transformedData) {
     transformedData = transformedData %>% na.omit()
 
-    ## display unique classes in  row 1,2,3,4,5,6:
-    #typesserversno = length(unique(transformedData$dsls_server))
-    #typeslicsno = length(unique(transformedData$lic_type))
-    #typescountriesno = length(unique(transformedData$country))
-    #typescontinentsno = length(unique(transformedData$continent))
-    #typesosno = length(unique(transformedData$operating_system))
-
-
     uniqueServers = unique(transformedData$DSLS_SERVER)
     uniqueLics = unique(transformedData$LIC_TYPE)
     uniqueCountries = unique(transformedData$COUNTRY)
