@@ -13,7 +13,7 @@ createArtificalDataVec = function(salt, typesno) {
 
 encryptCell = function(unique, vec, cellVal) {
 
-    for (i in 1:typesServersno) { if (cellVal == unique[i]) return(vec[i]) }
+    for (i in 1:length(unique)) { if (cellVal == unique[i]) return(vec[i]) }
 }
 
 getEncryptedVec = function(uniqueData, vecData, data) {
