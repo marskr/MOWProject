@@ -51,13 +51,13 @@ getDataFrame = function(data) {
     vecConti = createArtificalDataVec(saltConti, typesContinentsno)
     vecOS = createArtificalDataVec(saltOS, typesOSno)
 
-    encVecServ = getEncryptedVec(uniqueServers, vecServ, data$DSLS_SERVER)
-    encVecLics = getEncryptedVec(uniqueLics, vecLics, data$LIC_TYPE)
-    encVecConti = getEncryptedVec(uniqueContinents, vecConti, data$CONTINENT)
-    encVecCount = getEncryptedVec(uniqueCountries, vecCount, data$COUNTRY)
-    encVecOS = getEncryptedVec(uniqueOS, vecOS, data$OPERATING_SYSTEM)
+    Serv = getEncryptedVec(uniqueServers, vecServ, data$DSLS_SERVER)
+    Lics = getEncryptedVec(uniqueLics, vecLics, data$LIC_TYPE)
+    Conti = getEncryptedVec(uniqueContinents, vecConti, data$CONTINENT)
+    Count = getEncryptedVec(uniqueCountries, vecCount, data$COUNTRY)
+    OS = getEncryptedVec(uniqueOS, vecOS, data$OPERATING_SYSTEM)
 
-    dataFrame = data.frame(encVecServ, encVecLics, encVecConti, encVecCount, encVecOS)
+    dataFrame = data.frame(Serv, Lics, Conti, Count, OS)
 
     return(dataFrame)
 }

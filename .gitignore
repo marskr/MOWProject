@@ -7,6 +7,7 @@ AttributeSelectionWrappers/AttributeSelectionWrappers/ExtractDataModule.R
 AttributeSelectionWrappers/AttributeSelectionWrappers/AttributeSelectionWrappers.rxproj
 AttributeSelectionWrappers/AttributeSelectionWrappers/clusteringKMEANS.txt
 AttributeSelectionWrappers/AttributeSelectionWrappers/clusteringRXKMEANS.txt
+AttributeSelectionWrappers/AttributeSelectionWrappers/LoadDataModule.R
 
 *user
 *data
