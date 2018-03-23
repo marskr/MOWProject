@@ -1,5 +1,5 @@
 library(magrittr)
-source("ExtractDataModule.R")
+source("DataNormalization\\ExtractDataModule.R")
 
 createArtificalDataVec = function(salt, typesno) {
 

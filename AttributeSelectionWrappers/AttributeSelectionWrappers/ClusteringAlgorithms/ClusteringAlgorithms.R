@@ -1,6 +1,6 @@
 library(magrittr)
 library(cluster)
-source("ExtractDataModule.R")
+source("ClusteringAlgorithms\\LoadNormalizedData.R")
 
 # saving to file settings
 separator = '\t'
@@ -29,17 +29,17 @@ writeAllCluster = function(clust) {
 preprocessData = function(transformedData) {
     transformedData = transformedData %>% na.omit()
 
-    uniqueServers = unique(transformedData$DSLS_SERVER)
-    uniqueLics = unique(transformedData$LIC_TYPE)
-    uniqueCountries = unique(transformedData$COUNTRY)
-    uniqueContinents = unique(transformedData$CONTINENT)
-    uniqueOS = unique(transformedData$OPERATING_SYSTEM)
+    uniqueServers = unique(transformedData$Serv)
+    uniqueLics = unique(transformedData$Lics)
+    uniqueCountries = unique(transformedData$Count)
+    uniqueContinents = unique(transformedData$Conti)
+    uniqueOS = unique(transformedData$OS)
 
-    minedDataFrame = data.frame(servers = c(transformedData$DSLS_SERVER),
-                            lics = c(transformedData$LIC_TYPE),
-                            countries = c(transformedData$COUNTRY),
-                            continents = c(transformedData$CONTINENT),
-                            OS = c(transformedData$OPERATING_SYSTEM),
+    minedDataFrame = data.frame(servers = c(transformedData$Serv),
+                            lics = c(transformedData$Lics),
+                            countries = c(transformedData$Count),
+                            continents = c(transformedData$Conti),
+                            OS = c(transformedData$OS),
                             stringsAsFactors = FALSE)
 
     minedDataFrame$servers.num = as.numeric(factor(minedDataFrame$servers, levels = c(uniqueServers)))
@@ -51,11 +51,9 @@ preprocessData = function(transformedData) {
     return(minedDataFrame[, 6:10])
 }
 
-
-
 droppedStringMDF = preprocessData(transformedData)
 
-# head(droppedStringMDF, 5)
+#head(droppedStringMDF, 5)
 
 # determine number of clusters
 wss <- (nrow(droppedStringMDF) - 1) * sum(apply(droppedStringMDF, 2, var))
