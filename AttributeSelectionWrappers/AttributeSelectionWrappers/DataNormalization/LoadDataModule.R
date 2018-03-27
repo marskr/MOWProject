@@ -1,6 +1,6 @@
 library(sqldf)
 library(odbc)
-source("DataNormalization\\DataEncryption.R")
+source("DataNormalization/DataEncryption.R")
 
 connStr2 <- dbConnect(odbc(),
                  Driver = "SQL Server",

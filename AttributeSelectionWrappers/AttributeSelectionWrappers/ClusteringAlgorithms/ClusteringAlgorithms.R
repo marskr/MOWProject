@@ -1,6 +1,6 @@
 library(magrittr)
 library(cluster)
-source("ClusteringAlgorithms\\LoadNormalizedData.R")
+source("ClusteringAlgorithms/LoadNormalizedData.R")
 
 # saving to file settings
 separator = '\t'
@@ -63,7 +63,7 @@ plot(1:10, wss, type = "b", xlab = "Number of Clusters", ylab = "Within groups s
 
 # in this example we will try with 3 clusters!
 
-clusterResultFile = "C:/GithubRepos/MOWProject/AttributeSelectionWrappers/AttributeSelectionWrappers/clusteringRXKMEANS.txt"
+clusterResultFile = "C:/GithubRepos/MOWProject/AttributeSelectionWrappers/AttributeSelectionWrappers/ClusteringAlgorithms/clusteringRXKMEANS.txt"
 
 # Set.seed for random number generator for predictability
 set.seed(10);
@@ -71,9 +71,6 @@ set.seed(10);
 ## Generate clusters using rxKmeans and output key 
 #clustRXKMEANS <- rxKmeans(~servers.num + lics.num + countries.num + continents.num + OS.num, droppedStringMDF,
                   #numClusters = 6, outFile = NULL)
-
-#writeAllCluster(clustRXKMEANS)
-
 #clusplot(droppedStringMDF, clustRXKMEANS$cluster, color = TRUE, shade = TRUE, labels = 4, lines = 0, plotchar = TRUE);
 
 # some kmeans algorithm tests with formula expression
