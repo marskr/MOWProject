@@ -8,6 +8,7 @@
 *clusteringKMEANS.txt
 *clusteringRXKMEANS.txt
 *LoadDataModule.R
+*LoadNormalizedData.R
 
 *user
 *data
