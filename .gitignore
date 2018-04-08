@@ -9,6 +9,7 @@
 *clusteringRXKMEANS.txt
 *LoadDataModule.R
 *LoadNormalizedData.R
+*SystemParams.R
 
 *user
 *data

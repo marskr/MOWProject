@@ -62,4 +62,4 @@ getDataFrame = function(data) {
     return(dataFrame)
 }
 
-encTransformedData = getDataFrame(transformedData)
+encData = getDataFrame(transformedData)
