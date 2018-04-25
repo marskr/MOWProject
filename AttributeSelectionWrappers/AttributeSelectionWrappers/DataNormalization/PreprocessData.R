@@ -1,5 +1,7 @@
 library(magrittr)
 
+head(transformedData,5)
+
 preprocessData = function(transformedData) {
     transformedData = transformedData %>% na.omit()
 

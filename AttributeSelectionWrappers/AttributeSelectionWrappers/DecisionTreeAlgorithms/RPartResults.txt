@@ -1,0 +1,24 @@
+unique licences: 
+1	2
+unique servers: 
+1	2	3	4
+unique OS: 
+1	2	3
+unique licences: 
+1	2
+unique servers: 
+1	2	3	4
+unique OS: 
+1	2	3
+unique licences: 
+1	2
+unique servers: 
+1	2	3	4
+unique OS: 
+1	2	3
+unique licences: 
+1	2
+unique servers: 
+1	2	3	4
+unique OS: 
+1	2	3

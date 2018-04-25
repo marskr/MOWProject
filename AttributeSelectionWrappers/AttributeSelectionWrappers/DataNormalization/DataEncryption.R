@@ -23,6 +23,7 @@ getEncryptedVec = function(uniqueData, vecData, data) {
     return(vec)
 }
 
+# encryption of data & creation of the data frame, which will store future data
 getDataFrame = function(data) {
 
     data = data %>% na.omit()
@@ -51,13 +52,23 @@ getDataFrame = function(data) {
     vecConti = createArtificalDataVec(saltConti, typesContinentsno)
     vecOS = createArtificalDataVec(saltOS, typesOSno)
 
-    Serv = getEncryptedVec(uniqueServers, vecServ, data$DSLS_SERVER)
-    Lics = getEncryptedVec(uniqueLics, vecLics, data$LIC_TYPE)
-    Conti = getEncryptedVec(uniqueContinents, vecConti, data$CONTINENT)
-    Count = getEncryptedVec(uniqueCountries, vecCount, data$COUNTRY)
+    Server = getEncryptedVec(uniqueServers, vecServ, data$DSLS_SERVER)
+    Licences = getEncryptedVec(uniqueLics, vecLics, data$LIC_TYPE)
+    Continent = getEncryptedVec(uniqueContinents, vecConti, data$CONTINENT)
+    Country = getEncryptedVec(uniqueCountries, vecCount, data$COUNTRY)
     OS = getEncryptedVec(uniqueOS, vecOS, data$OPERATING_SYSTEM)
 
-    dataFrame = data.frame(Serv, Lics, Conti, Count, OS)
+    dataFrame = data.frame(Server, Licences, Continent, Country, OS)
+
+    dataFrame = getNumericToDF(dataFrame, data$LIC_USG)
+
+    return(dataFrame)
+}
+
+# including integer data, which won't be encrypted in previous step!
+getNumericToDF = function(dataFrame, LicencesUsage) {
+
+    dataFrame = data.frame(dataFrame, LicencesUsage)
 
     return(dataFrame)
 }

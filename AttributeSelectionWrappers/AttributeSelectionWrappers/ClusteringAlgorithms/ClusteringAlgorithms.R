@@ -38,10 +38,6 @@ for (i in 2:10)
     wss[i] <- sum(kmeans(droppedStringMDF, centers = i)$withinss)
 plot(1:10, wss, type = "b", xlab = "Number of Clusters", ylab = "Within groups sum of squares")
 
-# in this example we will try with 3 clusters!
-
-clusterResultFile = "C:/GithubRepos/MOWProject/AttributeSelectionWrappers/AttributeSelectionWrappers/ClusteringAlgorithms/clusteringRXKMEANS.txt"
-
 # Set.seed for random number generator for predictability
 set.seed(10);
 
