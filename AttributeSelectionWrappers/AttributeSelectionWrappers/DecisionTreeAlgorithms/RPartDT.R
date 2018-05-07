@@ -5,18 +5,9 @@ library(RColorBrewer)
 source("DataNormalization/DataEncryption.R")
 source("DecisionTreeAlgorithms/SystemParams.R")
 source("DataNormalization/PreprocessData.R")
+source("DataNormalization/WriteToFile.R")
 
-# saving to file settings
-separator = '\t'
-appending = TRUE
-resFile = "C:/GithubRepos/MOWProject/AttributeSelectionWrappers/AttributeSelectionWrappers/DecisionTreeAlgorithms/RPartResults.txt"
-
-# method that saves cluster calculated data to a given file
-writeToFile = function(resName, resPart, resFile) {
-    write(resName, resFile, sep = separator, append = appending)
-    write(resPart, resFile, sep = separator, append = appending)
-}
-
+write("", resFile, sep = separator, append = FALSE)
 writeToFile("unique licences: ", unique(encData$Licences), resFile)
 writeToFile("unique servers: ", unique(encData$Server), resFile)
 writeToFile("unique OS: ", unique(encData$OS), resFile)
@@ -28,7 +19,7 @@ writeToFile("unique OS: ", unique(encData$OS), resFile)
 head(encData, 5)
 
 # encData$servers.num | encData$OS.num | encData$lics.num | encData$countries.num | encData$continents.num
-myTree = rpart(encData$OS ~ encData$Licences + encData$Country + encData$LicencesUsage, method = "class", data = encData,
+myTree = rpart(encData$OS ~ encData$Licences + encData$Country + encData$LicencesUsage, method = "anova", data = encData,
                                                                                    minsplit = 2,
                                                                                    minbucket = 1,
                                                                                    maxdepth = 2,
@@ -42,7 +33,7 @@ summary(myTree)
 
 # myTree = prune(myTree, cp = 0.99) # calculate this value!!!
 
-# fancyRpartPlot(myTree)
+fancyRpartPlot(myTree)
 
 encData$OSclass = predict(myTree, newdata = encData, type = "class") #Returns the predicted class
 
