@@ -54,14 +54,28 @@ kfcv.classifier = function(data, class, classifier, k = 10) {
         testingindices = alltestingindices[[i]]
         train = data[-testingindices,] # take all rows that are not in testingindicates list
         test = data[testingindices,] # take all rows that are in testingindicates list
+
         #result[[i]] = classifier.naivebayes(train, test, class)
         result[[i]] = classifier.decisiontree(train, test, class, testingindices)
 
-        err = 1.0 - (result[[i]][1, 1] + result[[i]][2, 2]) / sum(result[[i]])
+        err = 1.0 - kfcv.sum(result[[i]]) / sum(result[[i]])
+        #print(result[[i]][1, 1] + result[[i]][2, 2]) / sum(result[[i]])
+
         all.err = rbind(all.err, err)
     }
     err.cv = mean(all.err)
-    err.cv
+}
+
+kfcv.sum = function(result) {
+    diagonalSum = 0 
+    for (i in 1:(dim(result)[1])) {
+        kfcv.increment(diagonalSum, result[i, i])
+    }
+    diagonalSum    
+}
+
+kfcv.increment = function(data, value) {
+    eval.parent(substitute(data <- data + value))
 }
 
 classifier.naivebayes = function(train, test, class) {
@@ -74,10 +88,9 @@ classifier.naivebayes = function(train, test, class) {
 classifier.decisiontree = function(train, test, class, testindicates) {
     # decision tree classifier
     # requires library(rpart)
-    modelTree = rpart(train[, class] ~ train[, class + 2], method = "class", data = train)
+    modelTree = rpart(train[, class %% dim(test)[2]] ~ train[, (class + 2) %% dim(test)[2]], method = "class", data = train)
     testPred = predict(modelTree, newData = test, type = "class")
-
-    mc = table(testPred[testindicates], test[, class])
+    table(testPred[testindicates], test[, class %% dim(test)[2]])
 }
 
 kfcv.error = function(data, n, k = 10) {
@@ -92,8 +105,7 @@ kfcv.error = function(data, n, k = 10) {
     min(all.err)
 }
 
-kfcv.sizes(dim(encData), 3)
-kfcv.testing(dim(encData)[1], 3)
-kfcv.classifier(encData, 1, classifier.naivebayes, 3)
-kfcv.error(encData, 3, 3)
-
+kfcv.sizes(dim(encData), 5)
+kfcv.testing(dim(encData)[1], 5)
+kfcv.classifier(encData, 1, classifier.naivebayes, 5)
+kfcv.error(encData, 3, 5)
