@@ -19,7 +19,7 @@ writeToFile("unique OS: ", unique(encData$OS), resFile)
 head(encData, 5)
 
 # encData$servers.num | encData$OS.num | encData$lics.num | encData$countries.num | encData$continents.num
-myTree = rpart(encData$OS ~ encData$Licences + encData$Country + encData$LicencesUsage, method = "anova", data = encData,
+myTree = rpart(encData$OS ~ encData$Licences + encData$Country + encData$LicencesUsage, method = "class", data = encData,
                                                                                    minsplit = 2,
                                                                                    minbucket = 1,
                                                                                    maxdepth = 2,
