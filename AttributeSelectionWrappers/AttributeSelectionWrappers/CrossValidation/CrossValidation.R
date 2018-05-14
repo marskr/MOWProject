@@ -53,6 +53,7 @@ kfcv.classifier = function(data, class, classTested = 1, classifier, k = 10) {
     all.err = numeric(0)
     result = list()
     alltestingindices = kfcv.testing(dim(data)[1])
+
     for (i in 1:k) {
         testingindices = alltestingindices[[i]]
         train = data[-testingindices,] # take all rows that are not in testingindicates list
@@ -61,21 +62,17 @@ kfcv.classifier = function(data, class, classTested = 1, classifier, k = 10) {
         #result[[i]] = classifier.naivebayes(train, test, class)
         result[[i]] = classifier.decisiontree(train, test, class, testingindices, classTested)
 
-        err = 1.0 - kfcv.sum(result[[i]]) / sum(result[[i]])
-        #print(result[[i]][1, 1] + result[[i]][2, 2]) / sum(result[[i]])
+        #print(result[[i]])
+        #print(kfcv.computeTP(result[[i]]))
+        #print(kfcv.computeFP(result[[i]]))
+        #print(kfcv.computeFN(result[[i]]))
+        #print(kfcv.computeTN(result[[i]]))
 
+        err = kfcv.computeACC(result[[i]])
+        
         all.err = rbind(all.err, err)
     }
     err.cv = mean(all.err)
-}
-
-kfcv.sum = function(result) {
-
-    diagonalSum = 0
-    for (i in 1:(dim(result)[1])) {
-        kfcv.increment(diagonalSum, result[i, i])
-    }
-    diagonalSum
 }
 
 kfcv.increment = function(data, value) {
@@ -95,27 +92,96 @@ classifier.decisiontree = function(train, test, class, testindicates, classTeste
 
     # decision tree classifier
     # requires library(rpart)
-    index = ((class + 1) %% dim(train)[2]) + 1
-
-    modelTree = rpart(train[, 1] ~ train[, class], method = "class", data = train) #%% dim(test)[2]
+    modelTree = rpart(train[, classTested] ~ train[, class], method = "class", data = train) #%% dim(test)[2]
     testPred = predict(modelTree, newData = test, type = "class")
 
-    table(testPred[testindicates], test[, class])
+    table(testPred[testindicates], test[, classTested])
 }
 
-kfcv.error = function(data, n, k = 10) {
+# coefficent calculations https://en.wikipedia.org/wiki/Confusion_matrix
+
+kfcv.computeTP = function(result) {
+
+    result[1, 1]
+}
+
+kfcv.computeTN = function(result) {
+
+    sum(result) - sum(result[1, ]) - sum(result[, 1]) + sum(result[1, 1])
+}
+
+kfcv.computeFP = function(result) {
+
+    sum(result[1, ]) - result[1, 1]
+}
+
+kfcv.computeFN = function(result) {
+
+    sum(result[, 1]) - result[1, 1]
+}
+
+kfcv.computeTPR = function(result) {
+
+    kfcv.computeTP(result)/(kfcv.computeTP(result) + kfcv.computeFN(result))
+}
+
+kfcv.computeTNR = function(result) {
+
+    kfcv.computeTN(result)/(kfcv.computeTN(result) + kfcv.computeFP(result))
+}
+
+kfcv.computePPV = function(result) {
+
+    kfcv.computeTP(result)/(kfcv.computeTP(result) + kfcv.computeFP(result))
+}
+
+kfcv.computeNPV = function(result) {
+    
+    kfcv.computeTN(result)/(kfcv.computeTN(result) + kfcv.computeFN(result))
+}
+
+kfcv.computeFNR = function(result) {
+
+    kfcv.computeFN(result)/(kfcv.computeFN(result) + kfcv.computeTP(result))
+}
+
+kfcv.computeFPR = function(result) {
+
+    kfcv.computeFP(result)/(kfcv.computeFP(result) + kfcv.computeTN(result))
+}
+
+kfcv.computeFDR = function(result) {
+
+    kfcv.computeFP(result)/(kfcv.computeFP(result) + kfcv.computeTP(result))
+}
+
+kfcv.computeFOR = function(result) {
+
+    kfcv.computeFN(result)/(kfcv.computeFN(result) + kfcv.computeTN(result))
+}
+
+kfcv.computeACC = function(result) {
+
+    (kfcv.computeTP(result) + kfcv.computeTN(result)) / sum(result)
+}
+
+# coefficient calculations end
+
+kfcv.error = function(data, n, classTested = 1, k = 10) {
 
     all.err = numeric(0)
     for (i in 1:n) {
-        err = kfcv.classifier(data, i, 2, classifier.decisiontree, 5)
+        err = kfcv.classifier(data, i, classTested, classifier.decisiontree, 5)
         cat(err, " is the error of iteration ", i, "\n")
         if (err != 0)
             all.err = rbind(all.err, err)
-        }
-    min(all.err)
+    }
+    max(all.err)
 }
 
-#kfcv.sizes(dim(transformedData), 5)
-#kfcv.testing(dim(transformedData)[1], 5)
-#kfcv.classifier(transformedData, 1, classifier.naivebayes, 5)
-#kfcv.error(transformedData, 5, 5)
+#kfcv.sizes(dim(encData), 5)
+#kfcv.testing(dim(encData)[1], 5)
+#kfcv.classifier(encData, 1, classifier.decisiontree , 5)
+
+print(kfcv.error(encData, 5, 1, 5))
+
