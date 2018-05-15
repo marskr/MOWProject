@@ -1,6 +1,11 @@
 library(ROCR)
 library(e1071)
 source("DataNormalization/DataEncryption.R")
+source("DataNormalization/WriteToFile.R")
+
+separator = '\t'
+appending = TRUE
+resFile = "C:/GithubRepos/MOWProject/AttributeSelectionWrappers/AttributeSelectionWrappers/CrossValidation/CrossValidationResult.txt"
 
 head(encData, 5)
 
@@ -17,6 +22,7 @@ kfcv.sizes = function(n, k = 10) {
         last = ((i * n) %/% k)
         sizes = append(sizes, last - first + 1)
     }
+
     sizes
 }
 
@@ -37,6 +43,7 @@ kfcv.testing = function(n, k = 10) {
         # remove sample from values
         values = setdiff(values, s)
     }
+
     indices
 }
 
@@ -52,50 +59,98 @@ kfcv.classifier = function(data, class, classTested = 1, classifier, k = 10) {
 
     all.err = numeric(0)
     result = list()
+    # obtain list of lists of indexes, for cross validation of provided dataset
     alltestingindices = kfcv.testing(dim(data)[1])
 
     for (i in 1:k) {
+
         testingindices = alltestingindices[[i]]
         train = data[-testingindices,] # take all rows that are not in testingindicates list
         test = data[testingindices,] # take all rows that are in testingindicates list
 
-        #result[[i]] = classifier.naivebayes(train, test, class)
-        result[[i]] = classifier.decisiontree(train, test, class, testingindices, classTested)
+        # using classifier to obtain confusion matrix as output
+        result[[i]] = classifier(train, test, class, testingindices, classTested)
 
-        #print(result[[i]])
-        #print(kfcv.computeTP(result[[i]]))
-        #print(kfcv.computeFP(result[[i]]))
-        #print(kfcv.computeFN(result[[i]]))
-        #print(kfcv.computeTN(result[[i]]))
-
-        err = kfcv.computeACC(result[[i]])
+        # resubstitution error computation:
+        err = 1 - kfcv.computeACC(result[[i]])
         
         all.err = rbind(all.err, err)
     }
+
+    # compute mean of all resubstitute errors (k-folds cross validation)
     err.cv = mean(all.err)
 }
 
-kfcv.increment = function(data, value) {
+kfcv.stats = function(data, class, classTested = 1, classifier, k = 10) {
 
-    eval.parent(substitute(data <- data + value))
-}
+    # creation of object that will store coefficients computed using confusion matrix
+    all.TPR = numeric(0)
+    all.TNR = numeric(0)
+    all.PPV = numeric(0)
+    all.NPV = numeric(0)
+    all.FNR = numeric(0)
+    all.FPR = numeric(0)
+    all.FDR = numeric(0)
+    all.FOR = numeric(0)
+    all.ACC = numeric(0)
 
-classifier.naivebayes = function(train, test, class) {
+    result = list()
+    alltestingindices = kfcv.testing(dim(data)[1])
 
-    # simple example of a classifier
-    # requires library(e1071)
-    model = naiveBayes(train[, - class], train[, class])
-    table(predict(model, test[, - class]), test[, class])
-}
+    for (i in 1:k) {
 
-classifier.decisiontree = function(train, test, class, testindicates, classTested = 1) {
+        testingindices = alltestingindices[[i]]
+        train = data[-testingindices,] # take all rows that are not in testingindicates list
+        test = data[testingindices,] # take all rows that are in testingindicates list
 
-    # decision tree classifier
-    # requires library(rpart)
-    modelTree = rpart(train[, classTested] ~ train[, class], method = "class", data = train) #%% dim(test)[2]
-    testPred = predict(modelTree, newData = test, type = "class")
+        # computation of confusion matrix
+        result[[i]] = classifier(train, test, class, testingindices, classTested)
 
-    table(testPred[testindicates], test[, classTested])
+        # compute coefficients using confusion matrix
+        errTPR = kfcv.computeTPR(result[[i]])
+        errTNR = kfcv.computeTNR(result[[i]])
+        errPPV = kfcv.computePPV(result[[i]])
+        errNPV = kfcv.computeNPV(result[[i]])
+        errFNR = kfcv.computeFNR(result[[i]])
+        errFPR = kfcv.computeFPR(result[[i]])
+        errFDR = kfcv.computeFDR(result[[i]])
+        errFOR = kfcv.computeFOR(result[[i]])
+        errACC = kfcv.computeACC(result[[i]])
+
+        # add coefficients to previously created objects
+        all.TPR = rbind(all.TPR, errTPR)
+        all.TNR = rbind(all.TNR, errTNR)
+        all.PPV = rbind(all.PPV, errPPV)
+        all.NPV = rbind(all.NPV, errNPV)
+        all.FNR = rbind(all.FNR, errFNR)
+        all.FPR = rbind(all.FPR, errFPR)
+        all.FDR = rbind(all.FDR, errFDR)
+        all.FOR = rbind(all.FOR, errFOR)
+        all.ACC = rbind(all.ACC, errACC)
+    }
+
+    # calculate means from coefficient objects
+    err.TPR = mean(all.TPR)
+    err.TNR = mean(all.TNR)
+    err.PPV = mean(all.PPV)
+    err.NPV = mean(all.NPV)
+    err.FNR = mean(all.FNR)
+    err.FPR = mean(all.FPR)
+    err.FDR = mean(all.FDR)
+    err.FOR = mean(all.FOR)
+    err.ACC = mean(all.ACC)
+
+    # write all computations to file
+    write("", resFile, sep = separator, append = FALSE)
+    writeToFile("Recall/Sensivity(TPR): ", err.TPR, resFile)
+    writeToFile("Specifity/True negative rate(TNR): ", err.TNR, resFile)
+    writeToFile("Precision/Positive predictive value(PPV): ", err.TPR, resFile)
+    writeToFile("Negative predictive value(NPV): ", err.TPR, resFile)
+    writeToFile("Miss rate/False negative rate(FNR): ", err.FNR, resFile)
+    writeToFile("Fall-out/False positive rate(FPR): ", err.FPR, resFile)
+    writeToFile("False discovery rate(FDR): ", err.FDR, resFile)
+    writeToFile("False omission rate(FOR): ", err.FOR, resFile)
+    writeToFile("Accuracy(ACC): ", err.ACC, resFile)
 }
 
 # coefficent calculations https://en.wikipedia.org/wiki/Confusion_matrix
@@ -167,21 +222,43 @@ kfcv.computeACC = function(result) {
 
 # coefficient calculations end
 
-kfcv.error = function(data, n, classTested = 1, k = 10) {
+kfcv.error = function(data, n, classifier, classTested = 1, k = 10) {
 
     all.err = numeric(0)
     for (i in 1:n) {
-        err = kfcv.classifier(data, i, classTested, classifier.decisiontree, 5)
+        err = kfcv.classifier(data, i, classTested, classifier, 5)
         cat(err, " is the error of iteration ", i, "\n")
         if (err != 0)
             all.err = rbind(all.err, err)
+        else
+            all.err = rbind(all.err, 1)
     }
-    max(all.err)
+
+    kfcv.stats(data, which.min(all.err), classTested, classifier, 5)
+}
+
+classifier.naivebayes = function(train, test, class, testindicates, classTested = 1) {
+
+    # simple example of a classifier
+    # requires library(e1071)
+    model = naiveBayes(train[, - class], train[, class])
+
+    table(predict(model, test[, - class]), test[, class])
+}
+
+classifier.decisiontree = function(train, test, class, testindicates, classTested = 1) {
+
+    # decision tree classifier
+    # requires library(rpart)
+    modelTree = rpart(train[, classTested] ~ train[, class], method = "class", data = train)
+    testPred = predict(modelTree, newData = test, type = "class")
+
+    table(testPred[testindicates], test[, classTested])
 }
 
 #kfcv.sizes(dim(encData), 5)
 #kfcv.testing(dim(encData)[1], 5)
 #kfcv.classifier(encData, 1, classifier.decisiontree , 5)
 
-print(kfcv.error(encData, 5, 1, 5))
+kfcv.error(encData, 5, classifier.decisiontree, 1, 5)
 
