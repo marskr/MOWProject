@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\AttributeSelectionWrappers",
+    "\\AttributeSelectionWrappers\\AttributeSelectionWrappers",
+    "\\AttributeSelectionWrappers\\AttributeSelectionWrappers\\ClusteringAlgorithms",
+    "\\AttributeSelectionWrappers\\AttributeSelectionWrappers\\DecisionTreeAlgorithms"
+  ],
+  "SelectedNode": "\\AttributeSelectionWrappers\\AttributeSelectionWrappers\\decision_tree.png",
+  "PreviewInSolutionExplorer": false
+}
