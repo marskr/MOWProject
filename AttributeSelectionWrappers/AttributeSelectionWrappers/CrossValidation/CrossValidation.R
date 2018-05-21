@@ -39,7 +39,7 @@ kfcv.testing = function(n, k = 10) {
     indices
 }
 
-kfcv.classifier = function(data, classTested = 1, classifier, k = 10) {
+kfcv.classifier = function(data, classTested = 1, classifier, ROC, k = 10) {
 
     # run k-fold cross validation with an arbitrary classifier
     # EXAMPLE: kfcv.classifier(data, class, classifier, k = ...)
@@ -50,7 +50,9 @@ kfcv.classifier = function(data, classTested = 1, classifier, k = 10) {
     # takes a training set, a test set, and a class column index
 
     all.err = numeric(0)
+    all.auc = numeric(0)
     result = list()
+    resultROC = list()
     # obtain list of lists of indexes, for cross validation of provided dataset
     alltestingindices = kfcv.testing(dim(data)[1])
 
@@ -65,12 +67,26 @@ kfcv.classifier = function(data, classTested = 1, classifier, k = 10) {
 
         # resubstitution error computation:
         err = 1 - kfcv.computeACC(result[[i]])
-        
+
         all.err = rbind(all.err, err)
+
+        # using ROC to obtain area under curve (AUC)
+        resultROC = ROC(train, test, testingindices, classTested)
+
+        auc = resultROC[[1]] 
+
+        all.auc = rbind(all.auc, auc)
     }
+
+    kfcv.statsROC(mean(all.auc))
 
     # compute mean of all resubstitute errors (k-folds cross validation)
     err.cv = mean(all.err)
+}
+
+kfcv.statsROC = function(auc) {
+
+    writeToFile("", auc, rocFile)
 }
 
 kfcv.stats = function(data, class, classTested = 1, classifier, k = 10) {
@@ -165,16 +181,23 @@ kfcv.subsets = function(elementsno, level) {
     combn(subsetslist, elementsno - level, simplify = FALSE)
 }
 
-kfcv.error = function(data, classifier, classTested = 1, n, k = 10) {
+kfcv.error = function(data, classifier, ROC, classTested = 1, n, k = 10) {
 
     all.err = numeric(0)
 
+    writeToFile("****************************************",
+                "*********** Iteration number ***********", rocFile)
+    writeToFile(iterator, "****************************************", rocFile)
+    
     for (i in 1:n) {
-        err = kfcv.classifier(data, classTested, classifier, 5)
+        err = kfcv.classifier(data, classTested, classifier, ROC, 5)
         #cat(err, " is the error of iteration ", i, "\n")
         if (err != 0)
             all.err = rbind(all.err, err)
     }
+
+    writeToFile("----------------------------------------",
+                "----------------------------------------", rocFile)
 
     kfcv.stats(data, which.min(all.err), classTested, classifier, k)
 

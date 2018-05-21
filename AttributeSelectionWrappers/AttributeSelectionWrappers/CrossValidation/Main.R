@@ -1,22 +1,29 @@
 library(ROCR)
 library(e1071)
 library(Hmisc)
+library(randomForest)
 source("DataNormalization/DataEncryption.R")
 source("DataNormalization/WriteToFile.R")
 source("CrossValidation/Classifiers.R")
 source("CrossValidation/Coefficients.R")
 source("CrossValidation/CrossValidation.R")
 
+# the number, which is responsible for checking, if we want to comply to stop criterium (or not)
+boundaryCrossedIterator = 0
+# the number, that increments inside write to file code part, after every saved measure - we want to know 
+# which iteration of algorithm was saved to file
 iterator = 1
 separator = '\t'
 appending = TRUE
 resFile = "C:/GithubRepos/MOWProject/AttributeSelectionWrappers/AttributeSelectionWrappers/CrossValidation/CrossValidationResult.txt"
+rocFile = "C:/GithubRepos/MOWProject/AttributeSelectionWrappers/AttributeSelectionWrappers/CrossValidation/ReceiverOperationStatisticResult.txt"
 
 #head(encData, 5)
 
-kfcv.main = function(data, classifier, classTested = 1, n = 3, k = 10, stopval = 1) {
+kfcv.main = function(data, classifier, ROC, classTested = 1, n = 3, k = 10, stopval = 1, count = 1) {
 
     write("", resFile, sep = separator, append = FALSE)
+    write("", rocFile, sep = separator, append = FALSE)
 
     elemno = dim(data)[2]
 
@@ -56,7 +63,7 @@ kfcv.main = function(data, classifier, classTested = 1, n = 3, k = 10, stopval =
         for (j in 1:subsetlen) {
 
             set = subsetslist[[j]]
-            err = kfcv.error(data[, set], classifier, classTested, n, k)
+            err = kfcv.error(data[, set], classifier, ROC, classTested, n, k)
             all.err = rbind(all.err, err)
             #cat(j, " iteration error: ", err, " \n")
 
@@ -78,11 +85,14 @@ kfcv.main = function(data, classifier, classTested = 1, n = 3, k = 10, stopval =
 
         # if difference between deltas is lower than stop criterium - we are breaking computations
         if (abs(post.delta - prev.delta) < stopval)
+            inc(boundaryCrossedIterator) <<- 1
+
+        if (boundaryCrossedIterator >= count)
             break
         }
 
     # at the end we have to compute also first level of data (with not selected features)
-    err = kfcv.error(data, classifier, classTested, n, k)
+    err = kfcv.error(data, classifier, ROC, classTested, n, k)
 
     # in every step we binding computed error with error list
     all.err = rbind(all.err, err)
@@ -104,15 +114,22 @@ n = 3
 # for cross validation. Number of folds, that we are providing
 k = 10
 
-# the type of classifier used (naivebayes, decisiontree)
-classifier = classifier.naivebayes
+# the type of classifier used (naivebayes, decisiontree, randomforest)
+classifier = classifier.decisiontree
+
+# the type of ROC analysis (and classifier that will be used for classification)
+ROC = ROC.decisiontree
 
 # the class that we are trying get dependencies
 classTested = 1
 
 # the stop criterium (difference between errors gives us delta & then we are checking delta differences)
 # if stopval is higher than delta difference - we are stopping wrapper. If you set 0 - than no stop criterium will be used. 
-stopval = 0
+stopval = double(0)
+stopval = 0.0001
 
-kfcv.main(encData, classifier, classTested, n, k, stopval)
+# how many times the stopval must be exceeded to stop the algorithm
+count = 3
+
+kfcv.main(encData, classifier, ROC, classTested, n, k, stopval, count)
 
