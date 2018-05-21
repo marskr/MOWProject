@@ -10,6 +10,7 @@ source("CrossValidation/CrossValidation.R")
 
 # the number, which is responsible for checking, if we want to comply to stop criterium (or not)
 boundaryCrossedIterator = 0
+
 # the number, that increments inside write to file code part, after every saved measure - we want to know 
 # which iteration of algorithm was saved to file
 iterator = 1

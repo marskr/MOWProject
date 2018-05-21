@@ -13,3 +13,8 @@
 
 *user
 *data
+
+*AnalysisROC
+*DecisionTreeAlgorithms
+*LinearRegressionAlgorithms
+*NaiveBayesAlgorithms
