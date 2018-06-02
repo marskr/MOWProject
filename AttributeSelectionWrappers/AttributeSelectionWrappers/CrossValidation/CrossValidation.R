@@ -52,7 +52,7 @@ kfcv.classifier = function(data, classTested = 1, classifier, ROC, k = 10) {
     all.err = numeric(0)
     all.auc = numeric(0)
     result = list()
-    resultROC = list()
+    #resultROC = list()
     # obtain list of lists of indexes, for cross validation of provided dataset
     alltestingindices = kfcv.testing(dim(data)[1])
 
@@ -71,14 +71,14 @@ kfcv.classifier = function(data, classTested = 1, classifier, ROC, k = 10) {
         all.err = rbind(all.err, err)
 
         # using ROC to obtain area under curve (AUC)
-        resultROC = ROC(train, test, testingindices, classTested)
+        #resultROC = ROC(train, test, testingindices, classTested)
 
-        auc = resultROC[[1]] 
+        #auc = resultROC[[1]] 
 
-        all.auc = rbind(all.auc, auc)
+        #all.auc = rbind(all.auc, auc)
     }
 
-    kfcv.statsROC(mean(all.auc))
+    #kfcv.statsROC(mean(all.auc))
 
     # compute mean of all resubstitute errors (k-folds cross validation)
     err.cv = mean(all.err)
@@ -192,8 +192,13 @@ kfcv.error = function(data, classifier, ROC, classTested = 1, n, k = 10) {
     for (i in 1:n) {
         err = kfcv.classifier(data, classTested, classifier, ROC, 5)
         #cat(err, " is the error of iteration ", i, "\n")
-        if (err != 0)
-            all.err = rbind(all.err, err)
+        if (is.nan(err))
+            all.err = rbind(all.err, 1)
+
+        if (!(is.nan(err))) {
+            if (err != 0)
+                all.err = rbind(all.err, err)
+        }
     }
 
     writeToFile("----------------------------------------",

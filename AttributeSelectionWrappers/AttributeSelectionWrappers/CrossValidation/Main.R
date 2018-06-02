@@ -1,30 +1,35 @@
+library(datasets)
 library(ROCR)
 library(e1071)
 library(Hmisc)
 library(randomForest)
-source("DataNormalization/DataEncryption.R")
+library(MASS)
+
 source("DataNormalization/WriteToFile.R")
+source("DataNormalization/ReadCSV.R")
 source("CrossValidation/Classifiers.R")
 source("CrossValidation/Coefficients.R")
 source("CrossValidation/CrossValidation.R")
 
+iterator = 0
+
 # the number, which is responsible for checking, if we want to comply to stop criterium (or not)
 boundaryCrossedIterator = 0
 
-# the number, that increments inside write to file code part, after every saved measure - we want to know 
-# which iteration of algorithm was saved to file
-iterator = 1
 separator = '\t'
 appending = TRUE
+
+# directory of file, that contains cross-validation result
 resFile = "C:/GithubRepos/MOWProject/AttributeSelectionWrappers/AttributeSelectionWrappers/CrossValidation/CrossValidationResult.txt"
+
+# directory of file, that contains tested class result
 rocFile = "C:/GithubRepos/MOWProject/AttributeSelectionWrappers/AttributeSelectionWrappers/CrossValidation/ReceiverOperationStatisticResult.txt"
 
-#head(encData, 5)
+# directory of file, that contains command line result
+cmdFile = "C:/GithubRepos/MOWProject/AttributeSelectionWrappers/AttributeSelectionWrappers/CrossValidation/CommandLineResult.txt"
+
 
 kfcv.main = function(data, classifier, ROC, classTested = 1, n = 3, k = 10, stopval = 1, count = 1) {
-
-    write("", resFile, sep = separator, append = FALSE)
-    write("", rocFile, sep = separator, append = FALSE)
 
     elemno = dim(data)[2]
 
@@ -48,7 +53,7 @@ kfcv.main = function(data, classifier, ROC, classTested = 1, n = 3, k = 10, stop
     # we have to break iterating, when just 1 attribute is left - making prediction of one attribute makes no sense
     res = elemno - 1
 
-    for (i in 1:elemno) {
+    for (i in 1:(elemno)) {
 
         # break moment
         if (i == res) break
@@ -61,15 +66,26 @@ kfcv.main = function(data, classifier, ROC, classTested = 1, n = 3, k = 10, stop
         # finding minimal delta before computation step
         prev.delta = min(all.delta)
 
-        for (j in 1:subsetlen) {
+        res2 = subsetlen - 1
+
+        for (j in 1:res2) {
 
             set = subsetslist[[j]]
+            writeToFile("Actual set is: ", set, cmdFile)
             err = kfcv.error(data[, set], classifier, ROC, classTested, n, k)
             all.err = rbind(all.err, err)
             #cat(j, " iteration error: ", err, " \n")
 
             post.err = err * 100
             delta = abs(post.err - prev.err)
+
+            writeToFile("****************************************",
+                "*********** Iteration number ***********", cmdFile)
+            writeToFile(iterator, "****************************************", cmdFile)
+            writeToFile("The delta is ", delta, cmdFile)
+            writeToFile("Subset list is ", set, cmdFile)
+            writeToFile("----------------------------------------",
+                "----------------------------------------", cmdFile)
 
             cat("The delta is ", delta, " post: ", post.err, " prev: ", prev.err, "\n")
 
@@ -103,34 +119,60 @@ kfcv.main = function(data, classifier, ROC, classTested = 1, n = 3, k = 10, stop
 
     # at the end we are returning min error 
     cat("the minimum error was ", min(all.err), " for iteration ", which.min(all.err))
+
+    writeToFile("the minimum error was ", min(all.err), cmdFile)
+    writeToFile("for iteration ", which.min(all.err), cmdFile)
 }
 
 #kfcv.sizes(dim(encData), 5)
 #kfcv.testing(dim(encData)[1], 5)
 #kfcv.classifier(encData, 1, classifier.decisiontree , 5)
 
+# airData, Aids2
+dataset = airData[, 1:10]
+
 # number of cross validation that we will perform, to get average of them.
-n = 3
+n = 1
 
 # for cross validation. Number of folds, that we are providing
-k = 10
+k = 3
 
 # the type of classifier used (naivebayes, decisiontree, randomforest)
-classifier = classifier.decisiontree
+classifier = classifier.randomforest
 
 # the type of ROC analysis (and classifier that will be used for classification)
-ROC = ROC.decisiontree
+ROC = ROC.randomforest
 
 # the class that we are trying get dependencies
-classTested = 1
+classTested = 3
 
 # the stop criterium (difference between errors gives us delta & then we are checking delta differences)
 # if stopval is higher than delta difference - we are stopping wrapper. If you set 0 - than no stop criterium will be used. 
 stopval = double(0)
-stopval = 0.0001
+stopval = 5
 
 # how many times the stopval must be exceeded to stop the algorithm
-count = 3
+count = 1
 
-kfcv.main(encData, classifier, ROC, classTested, n, k, stopval, count)
+#kfcv.main(dataset, classifier, ROC, classTested, n, k, stopval, count)
 
+size =  dim(dataset)[2]
+
+# cleaning all previously-saved files 
+write("", resFile, sep = separator, append = FALSE)
+write("", rocFile, sep = separator, append = FALSE)
+write("", cmdFile, sep = separator, append = FALSE)
+
+# checking all independent values 
+for (i in 1:size) {
+
+    # the number, that increments inside write to file code part, after every saved measure - we want to know 
+    # which iteration of algorithm was saved to file
+    iterator = 1
+
+    writeToFile("Class tested: ", i, resFile)
+    writeToFile("Class tested: ", i, rocFile)
+    writeToFile("Class tested: ", i, cmdFile)
+
+    kfcv.main(Aids2, classifier, ROC, i, n, k, stopval, count)
+}
