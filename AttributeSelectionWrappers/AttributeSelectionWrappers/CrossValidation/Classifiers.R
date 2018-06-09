@@ -24,7 +24,7 @@ classifier.randomforest = function(train, test, testindicates, classTested = 1) 
 
     #set.seed(1234)
 
-    modelForest = randomForest(formula = train[, classTested] ~ ., ntree = 100, proximity = T, data = train)
+    modelForest = randomForest(formula = train[, classTested] ~ ., ntree = 1000, proximity = T, data = train)
     testPred = predict(modelForest, newData = test, type = "class")
 
     table(testPred[testindicates], test[, classTested])
@@ -64,7 +64,7 @@ ROC.randomforest = function(train, test, testindicates, classTested = 1) {
 
     #set.seed(1234)
 
-    modelForest = randomForest(formula = train[, classTested] ~ ., ntree = 100, proximity = T, data = train)
+    modelForest = randomForest(formula = train[, classTested] ~ ., ntree = 1000, proximity = T, data = train)
     testPred = predict(modelForest, newData = test, type = "class")
 
     category = c(testPred)
@@ -72,16 +72,6 @@ ROC.randomforest = function(train, test, testindicates, classTested = 1) {
 
     rocobject = multiclass.roc(category, pred)
     auc(rocobject)
-}
-
-# now not used
-
-classifier.decisiontreemicrosoft = function(train, test, testindicates, classTested = 1) {
-
-    modelTree = rxDTree(formula = train[, classTested] ~ ., method = "class", data = train)
-    testPred = rxPredict(modelTree, data = test, type = "class")
-
-    table(testPred[testindicates], test[, classTested])
 }
 
 # classifiers end

@@ -1,0 +1,1503 @@
+
+Class tested: 
+1
+****************************************
+*********** Iteration number ***********
+1
+****************************************
+Recall/Sensivity(TPR): 
+0.8762283
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.8762283
+Negative predictive value(NPV): 
+0.8762283
+Miss rate/False negative rate(FNR): 
+0.1237717
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.2095605
+Accuracy(ACC): 
+0.9157688
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+2
+****************************************
+Recall/Sensivity(TPR): 
+0.9056006
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.9056006
+Negative predictive value(NPV): 
+0.9056006
+Miss rate/False negative rate(FNR): 
+0.09439935
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.1565974
+Accuracy(ACC): 
+0.9374993
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+3
+****************************************
+Recall/Sensivity(TPR): 
+0.9178943
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.9178943
+Negative predictive value(NPV): 
+0.9178943
+Miss rate/False negative rate(FNR): 
+0.0821057
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.1572834
+Accuracy(ACC): 
+0.9428823
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+4
+****************************************
+Recall/Sensivity(TPR): 
+0.8920151
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.8920151
+Negative predictive value(NPV): 
+0.8920151
+Miss rate/False negative rate(FNR): 
+0.1079849
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.198061
+Accuracy(ACC): 
+0.9249481
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+5
+****************************************
+Recall/Sensivity(TPR): 
+0.8935346
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.8935346
+Negative predictive value(NPV): 
+0.8935346
+Miss rate/False negative rate(FNR): 
+0.1064654
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.1740966
+Accuracy(ACC): 
+0.9293472
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+6
+****************************************
+Recall/Sensivity(TPR): 
+0.888655
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.888655
+Negative predictive value(NPV): 
+0.888655
+Miss rate/False negative rate(FNR): 
+0.111345
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.2026658
+Accuracy(ACC): 
+0.9225714
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+7
+****************************************
+Recall/Sensivity(TPR): 
+0.8866005
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.8866005
+Negative predictive value(NPV): 
+0.8866005
+Miss rate/False negative rate(FNR): 
+0.1133995
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.1998024
+Accuracy(ACC): 
+0.9224434
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+8
+****************************************
+Recall/Sensivity(TPR): 
+0.9065901
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.9065901
+Negative predictive value(NPV): 
+0.9065901
+Miss rate/False negative rate(FNR): 
+0.09340992
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.1920534
+Accuracy(ACC): 
+0.932923
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+9
+****************************************
+Recall/Sensivity(TPR): 
+0.9075274
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.9075274
+Negative predictive value(NPV): 
+0.9075274
+Miss rate/False negative rate(FNR): 
+0.09247258
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.1762786
+Accuracy(ACC): 
+0.935478
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+10
+****************************************
+Recall/Sensivity(TPR): 
+0.8969687
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.8969687
+Negative predictive value(NPV): 
+0.8969687
+Miss rate/False negative rate(FNR): 
+0.1030313
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.2011312
+Accuracy(ACC): 
+0.9266014
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+11
+****************************************
+Recall/Sensivity(TPR): 
+0.9075273
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.9075273
+Negative predictive value(NPV): 
+0.9075273
+Miss rate/False negative rate(FNR): 
+0.09247271
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.1950178
+Accuracy(ACC): 
+0.9328162
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+12
+****************************************
+Recall/Sensivity(TPR): 
+0.9118568
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.9118568
+Negative predictive value(NPV): 
+0.9118568
+Miss rate/False negative rate(FNR): 
+0.08814319
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.1575466
+Accuracy(ACC): 
+0.9398483
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+13
+****************************************
+Recall/Sensivity(TPR): 
+0.9214017
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.9214017
+Negative predictive value(NPV): 
+0.9214017
+Miss rate/False negative rate(FNR): 
+0.07859832
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.1426932
+Accuracy(ACC): 
+0.9465333
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+14
+****************************************
+Recall/Sensivity(TPR): 
+0.921698
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.921698
+Negative predictive value(NPV): 
+0.921698
+Miss rate/False negative rate(FNR): 
+0.07830199
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.1554601
+Accuracy(ACC): 
+0.9449968
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+15
+****************************************
+Recall/Sensivity(TPR): 
+0.9015228
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.9015228
+Negative predictive value(NPV): 
+0.9015228
+Miss rate/False negative rate(FNR): 
+0.09847722
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.1941299
+Accuracy(ACC): 
+0.9301255
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+16
+****************************************
+Recall/Sensivity(TPR): 
+0.9046745
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.9046745
+Negative predictive value(NPV): 
+0.9046745
+Miss rate/False negative rate(FNR): 
+0.09532547
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.18283
+Accuracy(ACC): 
+0.9332217
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+17
+****************************************
+Recall/Sensivity(TPR): 
+0.911336
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.911336
+Negative predictive value(NPV): 
+0.911336
+Miss rate/False negative rate(FNR): 
+0.08866397
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.1799188
+Accuracy(ACC): 
+0.9367845
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+18
+****************************************
+Recall/Sensivity(TPR): 
+0.9089341
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.9089341
+Negative predictive value(NPV): 
+0.9089341
+Miss rate/False negative rate(FNR): 
+0.09106594
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.1591608
+Accuracy(ACC): 
+0.9382979
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+19
+****************************************
+Recall/Sensivity(TPR): 
+0.9037338
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.9037338
+Negative predictive value(NPV): 
+0.9037338
+Miss rate/False negative rate(FNR): 
+0.09626621
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.1934948
+Accuracy(ACC): 
+0.9311676
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+20
+****************************************
+Recall/Sensivity(TPR): 
+0.9039274
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.9039274
+Negative predictive value(NPV): 
+0.9039274
+Miss rate/False negative rate(FNR): 
+0.09607262
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.1864449
+Accuracy(ACC): 
+0.9323381
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+21
+****************************************
+Recall/Sensivity(TPR): 
+0.9167403
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.9167403
+Negative predictive value(NPV): 
+0.9167403
+Miss rate/False negative rate(FNR): 
+0.08325967
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.1483394
+Accuracy(ACC): 
+0.9434588
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+22
+****************************************
+Recall/Sensivity(TPR): 
+0.03333333
+Specifity/True negative rate(TNR): 
+0.9529524
+Precision/Positive predictive value(PPV): 
+0.03333333
+Negative predictive value(NPV): 
+0.03333333
+Miss rate/False negative rate(FNR): 
+0.9666667
+Fall-out/False positive rate(FPR): 
+0.04704765
+False discovery rate(FDR): 
+0.974359
+False omission rate(FOR): 
+0.03672121
+Accuracy(ACC): 
+0.9198657
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+23
+****************************************
+Recall/Sensivity(TPR): 
+0.03333333
+Specifity/True negative rate(TNR): 
+0.9824966
+Precision/Positive predictive value(PPV): 
+0.03333333
+Negative predictive value(NPV): 
+0.03333333
+Miss rate/False negative rate(FNR): 
+0.9666667
+Fall-out/False positive rate(FPR): 
+0.01750342
+False discovery rate(FDR): 
+0.6666667
+False omission rate(FOR): 
+0.02790102
+Accuracy(ACC): 
+0.9555837
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+24
+****************************************
+Recall/Sensivity(TPR): 
+0.0719697
+Specifity/True negative rate(TNR): 
+0.9716631
+Precision/Positive predictive value(PPV): 
+0.0719697
+Negative predictive value(NPV): 
+0.0719697
+Miss rate/False negative rate(FNR): 
+0.9280303
+Fall-out/False positive rate(FPR): 
+0.02833686
+False discovery rate(FDR): 
+0.9107143
+False omission rate(FOR): 
+0.03219896
+Accuracy(ACC): 
+0.9413582
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+25
+****************************************
+Recall/Sensivity(TPR): 
+0
+Specifity/True negative rate(TNR): 
+0.9783341
+Precision/Positive predictive value(PPV): 
+0
+Negative predictive value(NPV): 
+0
+Miss rate/False negative rate(FNR): 
+1
+Fall-out/False positive rate(FPR): 
+0.02166591
+False discovery rate(FDR): 
+1
+False omission rate(FOR): 
+0.02956054
+Accuracy(ACC): 
+0.9499994
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+26
+****************************************
+Recall/Sensivity(TPR): 
+0.09090909
+Specifity/True negative rate(TNR): 
+0.9673373
+Precision/Positive predictive value(PPV): 
+0.09090909
+Negative predictive value(NPV): 
+0.09090909
+Miss rate/False negative rate(FNR): 
+0.9090909
+Fall-out/False positive rate(FPR): 
+0.03266272
+False discovery rate(FDR): 
+0.9090909
+False omission rate(FOR): 
+0.03366553
+Accuracy(ACC): 
+0.9359564
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+27
+****************************************
+Recall/Sensivity(TPR): 
+0.8866422
+Specifity/True negative rate(TNR): 
+1
+Precision/Positive predictive value(PPV): 
+0.8866422
+Negative predictive value(NPV): 
+0.8866422
+Miss rate/False negative rate(FNR): 
+0.1133578
+Fall-out/False positive rate(FPR): 
+0
+False discovery rate(FDR): 
+0
+False omission rate(FOR): 
+0.2157736
+Accuracy(ACC): 
+0.9194878
+----------------------------------------
+----------------------------------------
+Class tested: 
+2
+****************************************
+*********** Iteration number ***********
+1
+****************************************
+Recall/Sensivity(TPR): 
+0.0787037
+Specifity/True negative rate(TNR): 
+0.9632299
+Precision/Positive predictive value(PPV): 
+0.0787037
+Negative predictive value(NPV): 
+0.0787037
+Miss rate/False negative rate(FNR): 
+0.9212963
+Fall-out/False positive rate(FPR): 
+0.03677009
+False discovery rate(FDR): 
+0.9326599
+False omission rate(FOR): 
+0.03689617
+Accuracy(ACC): 
+0.9291362
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+2
+****************************************
+Recall/Sensivity(TPR): 
+0.08333333
+Specifity/True negative rate(TNR): 
+0.975798
+Precision/Positive predictive value(PPV): 
+0.08333333
+Negative predictive value(NPV): 
+0.08333333
+Miss rate/False negative rate(FNR): 
+0.9166667
+Fall-out/False positive rate(FPR): 
+0.024202
+False discovery rate(FDR): 
+0.8333333
+False omission rate(FOR): 
+0.02829777
+Accuracy(ACC): 
+0.948882
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+3
+****************************************
+Recall/Sensivity(TPR): 
+0.07407407
+Specifity/True negative rate(TNR): 
+0.9669579
+Precision/Positive predictive value(PPV): 
+0.07407407
+Negative predictive value(NPV): 
+0.07407407
+Miss rate/False negative rate(FNR): 
+0.9259259
+Fall-out/False positive rate(FPR): 
+0.03304207
+False discovery rate(FDR): 
+0.9166667
+False omission rate(FOR): 
+0.02418935
+Accuracy(ACC): 
+0.9444112
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+4
+****************************************
+Recall/Sensivity(TPR): 
+0.06666667
+Specifity/True negative rate(TNR): 
+0.9735949
+Precision/Positive predictive value(PPV): 
+0.06666667
+Negative predictive value(NPV): 
+0.06666667
+Miss rate/False negative rate(FNR): 
+0.9333333
+Fall-out/False positive rate(FPR): 
+0.02640509
+False discovery rate(FDR): 
+0.952381
+False omission rate(FOR): 
+0.02896476
+Accuracy(ACC): 
+0.946203
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+5
+****************************************
+Recall/Sensivity(TPR): 
+0.02564103
+Specifity/True negative rate(TNR): 
+0.9684062
+Precision/Positive predictive value(PPV): 
+0.02564103
+Negative predictive value(NPV): 
+0.02564103
+Miss rate/False negative rate(FNR): 
+0.974359
+Fall-out/False positive rate(FPR): 
+0.03159378
+False discovery rate(FDR): 
+0.9444444
+False omission rate(FOR): 
+0.03399386
+Accuracy(ACC): 
+0.9364448
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+6
+****************************************
+Recall/Sensivity(TPR): 
+0
+Specifity/True negative rate(TNR): 
+0.9960576
+Precision/Positive predictive value(PPV): 
+0
+Negative predictive value(NPV): 
+0
+Miss rate/False negative rate(FNR): 
+1
+Fall-out/False positive rate(FPR): 
+0.003942441
+False discovery rate(FDR): 
+1
+False omission rate(FOR): 
+0.003942441
+Accuracy(ACC): 
+0.9921461
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+7
+****************************************
+Recall/Sensivity(TPR): 
+0.03030303
+Specifity/True negative rate(TNR): 
+0.9710059
+Precision/Positive predictive value(PPV): 
+0.03030303
+Negative predictive value(NPV): 
+0.03030303
+Miss rate/False negative rate(FNR): 
+0.969697
+Fall-out/False positive rate(FPR): 
+0.02899408
+False discovery rate(FDR): 
+0.969697
+False omission rate(FOR): 
+0.02896488
+Accuracy(ACC): 
+0.9438635
+----------------------------------------
+----------------------------------------
+Class tested: 
+3
+****************************************
+*********** Iteration number ***********
+1
+****************************************
+Recall/Sensivity(TPR): 
+NaN
+Specifity/True negative rate(TNR): 
+0.996037
+Precision/Positive predictive value(PPV): 
+NaN
+Negative predictive value(NPV): 
+NaN
+Miss rate/False negative rate(FNR): 
+NaN
+Fall-out/False positive rate(FPR): 
+0.003963026
+False discovery rate(FDR): 
+1
+False omission rate(FOR): 
+0.002640274
+Accuracy(ACC): 
+0.9934175
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+2
+****************************************
+Recall/Sensivity(TPR): 
+0
+Specifity/True negative rate(TNR): 
+0.9960622
+Precision/Positive predictive value(PPV): 
+0
+Negative predictive value(NPV): 
+0
+Miss rate/False negative rate(FNR): 
+1
+Fall-out/False positive rate(FPR): 
+0.003937788
+False discovery rate(FDR): 
+1
+False omission rate(FOR): 
+0.003937788
+Accuracy(ACC): 
+0.9921553
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+3
+****************************************
+Recall/Sensivity(TPR): 
+0
+Specifity/True negative rate(TNR): 
+0.9960988
+Precision/Positive predictive value(PPV): 
+0
+Negative predictive value(NPV): 
+0
+Miss rate/False negative rate(FNR): 
+1
+Fall-out/False positive rate(FPR): 
+0.003901223
+False discovery rate(FDR): 
+1
+False omission rate(FOR): 
+0.003901223
+Accuracy(ACC): 
+0.9922279
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+4
+****************************************
+Recall/Sensivity(TPR): 
+0
+Specifity/True negative rate(TNR): 
+0.9960315
+Precision/Positive predictive value(PPV): 
+0
+Negative predictive value(NPV): 
+0
+Miss rate/False negative rate(FNR): 
+1
+Fall-out/False positive rate(FPR): 
+0.003968547
+False discovery rate(FDR): 
+1
+False omission rate(FOR): 
+0.003968547
+Accuracy(ACC): 
+0.9920943
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+5
+****************************************
+Recall/Sensivity(TPR): 
+0
+Specifity/True negative rate(TNR): 
+0.9961079
+Precision/Positive predictive value(PPV): 
+0
+Negative predictive value(NPV): 
+0
+Miss rate/False negative rate(FNR): 
+1
+Fall-out/False positive rate(FPR): 
+0.00389214
+False discovery rate(FDR): 
+1
+False omission rate(FOR): 
+0.00389214
+Accuracy(ACC): 
+0.9922459
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+6
+****************************************
+Recall/Sensivity(TPR): 
+0.3333333
+Specifity/True negative rate(TNR): 
+0.9974001
+Precision/Positive predictive value(PPV): 
+0.3333333
+Negative predictive value(NPV): 
+0.3333333
+Miss rate/False negative rate(FNR): 
+0.6666667
+Fall-out/False positive rate(FPR): 
+0.002599891
+False discovery rate(FDR): 
+0.6666667
+False omission rate(FOR): 
+0.002599891
+Accuracy(ACC): 
+0.9948204
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+7
+****************************************
+Recall/Sensivity(TPR): 
+0
+Specifity/True negative rate(TNR): 
+0.9960675
+Precision/Positive predictive value(PPV): 
+0
+Negative predictive value(NPV): 
+0
+Miss rate/False negative rate(FNR): 
+1
+Fall-out/False positive rate(FPR): 
+0.003932546
+False discovery rate(FDR): 
+1
+False omission rate(FOR): 
+0.003932546
+Accuracy(ACC): 
+0.9921657
+----------------------------------------
+----------------------------------------
+Class tested: 
+4
+****************************************
+*********** Iteration number ***********
+1
+****************************************
+Recall/Sensivity(TPR): 
+0
+Specifity/True negative rate(TNR): 
+0.9960261
+Precision/Positive predictive value(PPV): 
+0
+Negative predictive value(NPV): 
+0
+Miss rate/False negative rate(FNR): 
+1
+Fall-out/False positive rate(FPR): 
+0.003973945
+False discovery rate(FDR): 
+1
+False omission rate(FOR): 
+0.003973945
+Accuracy(ACC): 
+0.9920836
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+2
+****************************************
+Recall/Sensivity(TPR): 
+0.3333333
+Specifity/True negative rate(TNR): 
+0.9974102
+Precision/Positive predictive value(PPV): 
+0.3333333
+Negative predictive value(NPV): 
+0.3333333
+Miss rate/False negative rate(FNR): 
+0.6666667
+Fall-out/False positive rate(FPR): 
+0.002589788
+False discovery rate(FDR): 
+0.6666667
+False omission rate(FOR): 
+0.002589788
+Accuracy(ACC): 
+0.9948405
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+3
+****************************************
+Recall/Sensivity(TPR): 
+0
+Specifity/True negative rate(TNR): 
+0.9961665
+Precision/Positive predictive value(PPV): 
+0
+Negative predictive value(NPV): 
+0
+Miss rate/False negative rate(FNR): 
+1
+Fall-out/False positive rate(FPR): 
+0.003833545
+False discovery rate(FDR): 
+1
+False omission rate(FOR): 
+0.003833545
+Accuracy(ACC): 
+0.9923622
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+4
+****************************************
+Recall/Sensivity(TPR): 
+0.4880402
+Specifity/True negative rate(TNR): 
+0.676859
+Precision/Positive predictive value(PPV): 
+0.4880402
+Negative predictive value(NPV): 
+0.4880402
+Miss rate/False negative rate(FNR): 
+0.5119598
+Fall-out/False positive rate(FPR): 
+0.323141
+False discovery rate(FDR): 
+0.5200094
+False omission rate(FOR): 
+0.3149179
+Accuracy(ACC): 
+0.6044682
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+5
+****************************************
+Recall/Sensivity(TPR): 
+0.4521984
+Specifity/True negative rate(TNR): 
+0.646415
+Precision/Positive predictive value(PPV): 
+0.4521984
+Negative predictive value(NPV): 
+0.4521984
+Miss rate/False negative rate(FNR): 
+0.5478016
+Fall-out/False positive rate(FPR): 
+0.353585
+False discovery rate(FDR): 
+0.5743738
+False omission rate(FOR): 
+0.3291568
+Accuracy(ACC): 
+0.5741355
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+6
+****************************************
+Recall/Sensivity(TPR): 
+0.4298912
+Specifity/True negative rate(TNR): 
+0.6553844
+Precision/Positive predictive value(PPV): 
+0.4298912
+Negative predictive value(NPV): 
+0.4298912
+Miss rate/False negative rate(FNR): 
+0.5701088
+Fall-out/False positive rate(FPR): 
+0.3446156
+False discovery rate(FDR): 
+0.618159
+False omission rate(FOR): 
+0.3020663
+Accuracy(ACC): 
+0.5777596
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+7
+****************************************
+Recall/Sensivity(TPR): 
+0
+Specifity/True negative rate(TNR): 
+0.996057
+Precision/Positive predictive value(PPV): 
+0
+Negative predictive value(NPV): 
+0
+Miss rate/False negative rate(FNR): 
+1
+Fall-out/False positive rate(FPR): 
+0.003943014
+False discovery rate(FDR): 
+1
+False omission rate(FOR): 
+0.003943014
+Accuracy(ACC): 
+0.992145
+----------------------------------------
+----------------------------------------
+Class tested: 
+5
+****************************************
+*********** Iteration number ***********
+1
+****************************************
+Recall/Sensivity(TPR): 
+0.4603658
+Specifity/True negative rate(TNR): 
+0.6847773
+Precision/Positive predictive value(PPV): 
+0.4603658
+Negative predictive value(NPV): 
+0.4603658
+Miss rate/False negative rate(FNR): 
+0.5396342
+Fall-out/False positive rate(FPR): 
+0.3152227
+False discovery rate(FDR): 
+0.5831731
+False omission rate(FOR): 
+0.2782434
+Accuracy(ACC): 
+0.6125998
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+2
+****************************************
+Recall/Sensivity(TPR): 
+0.5017022
+Specifity/True negative rate(TNR): 
+0.677213
+Precision/Positive predictive value(PPV): 
+0.5017022
+Negative predictive value(NPV): 
+0.5017022
+Miss rate/False negative rate(FNR): 
+0.4982978
+Fall-out/False positive rate(FPR): 
+0.322787
+False discovery rate(FDR): 
+0.5662514
+False omission rate(FOR): 
+0.2660917
+Accuracy(ACC): 
+0.6186355
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+3
+****************************************
+Recall/Sensivity(TPR): 
+0.8616259
+Specifity/True negative rate(TNR): 
+0.1542283
+Precision/Positive predictive value(PPV): 
+0.8616259
+Negative predictive value(NPV): 
+0.8616259
+Miss rate/False negative rate(FNR): 
+0.1383741
+Fall-out/False positive rate(FPR): 
+0.8457717
+False discovery rate(FDR): 
+0.1383666
+False omission rate(FOR): 
+0.846808
+Accuracy(ACC): 
+0.7629603
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+4
+****************************************
+Recall/Sensivity(TPR): 
+0.8644013
+Specifity/True negative rate(TNR): 
+0.1959325
+Precision/Positive predictive value(PPV): 
+0.8644013
+Negative predictive value(NPV): 
+0.8644013
+Miss rate/False negative rate(FNR): 
+0.1355987
+Fall-out/False positive rate(FPR): 
+0.8040675
+False discovery rate(FDR): 
+0.1317142
+False omission rate(FOR): 
+0.8175287
+Accuracy(ACC): 
+0.7697384
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+5
+****************************************
+Recall/Sensivity(TPR): 
+0.8620597
+Specifity/True negative rate(TNR): 
+0.1602981
+Precision/Positive predictive value(PPV): 
+0.8620597
+Negative predictive value(NPV): 
+0.8620597
+Miss rate/False negative rate(FNR): 
+0.1379403
+Fall-out/False positive rate(FPR): 
+0.8397019
+False discovery rate(FDR): 
+0.1423845
+False omission rate(FOR): 
+0.8386757
+Accuracy(ACC): 
+0.7589641
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+6
+****************************************
+Recall/Sensivity(TPR): 
+0.8721866
+Specifity/True negative rate(TNR): 
+0.1841601
+Precision/Positive predictive value(PPV): 
+0.8721866
+Negative predictive value(NPV): 
+0.8721866
+Miss rate/False negative rate(FNR): 
+0.1278134
+Fall-out/False positive rate(FPR): 
+0.8158399
+False discovery rate(FDR): 
+0.1267604
+False omission rate(FOR): 
+0.8085859
+Accuracy(ACC): 
+0.7793101
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+7
+****************************************
+Recall/Sensivity(TPR): 
+0.4512359
+Specifity/True negative rate(TNR): 
+0.6525932
+Precision/Positive predictive value(PPV): 
+0.4512359
+Negative predictive value(NPV): 
+0.4512359
+Miss rate/False negative rate(FNR): 
+0.5487641
+Fall-out/False positive rate(FPR): 
+0.3474068
+False discovery rate(FDR): 
+0.5515971
+False omission rate(FOR): 
+0.3446207
+Accuracy(ACC): 
+0.5753077
+----------------------------------------
+----------------------------------------
+Class tested: 
+6
+****************************************
+*********** Iteration number ***********
+1
+****************************************
+Recall/Sensivity(TPR): 
+0.8757257
+Specifity/True negative rate(TNR): 
+0.1153971
+Precision/Positive predictive value(PPV): 
+0.8757257
+Negative predictive value(NPV): 
+0.8757257
+Miss rate/False negative rate(FNR): 
+0.1242743
+Fall-out/False positive rate(FPR): 
+0.8846029
+False discovery rate(FDR): 
+0.1345728
+False omission rate(FOR): 
+0.8744949
+Accuracy(ACC): 
+0.7743884
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+2
+****************************************
+Recall/Sensivity(TPR): 
+0
+Specifity/True negative rate(TNR): 
+0.9960414
+Precision/Positive predictive value(PPV): 
+0
+Negative predictive value(NPV): 
+0
+Miss rate/False negative rate(FNR): 
+1
+Fall-out/False positive rate(FPR): 
+0.003958626
+False discovery rate(FDR): 
+1
+False omission rate(FOR): 
+0.003958626
+Accuracy(ACC): 
+0.992114
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+3
+****************************************
+Recall/Sensivity(TPR): 
+0
+Specifity/True negative rate(TNR): 
+0.9960577
+Precision/Positive predictive value(PPV): 
+0
+Negative predictive value(NPV): 
+0
+Miss rate/False negative rate(FNR): 
+1
+Fall-out/False positive rate(FPR): 
+0.003942277
+False discovery rate(FDR): 
+1
+False omission rate(FOR): 
+0.003942277
+Accuracy(ACC): 
+0.9921464
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+4
+****************************************
+Recall/Sensivity(TPR): 
+0
+Specifity/True negative rate(TNR): 
+0.9960524
+Precision/Positive predictive value(PPV): 
+0
+Negative predictive value(NPV): 
+0
+Miss rate/False negative rate(FNR): 
+1
+Fall-out/False positive rate(FPR): 
+0.003947628
+False discovery rate(FDR): 
+1
+False omission rate(FOR): 
+0.003947628
+Accuracy(ACC): 
+0.9921358
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+5
+****************************************
+Recall/Sensivity(TPR): 
+0
+Specifity/True negative rate(TNR): 
+0.9960509
+Precision/Positive predictive value(PPV): 
+0
+Negative predictive value(NPV): 
+0
+Miss rate/False negative rate(FNR): 
+1
+Fall-out/False positive rate(FPR): 
+0.003949087
+False discovery rate(FDR): 
+1
+False omission rate(FOR): 
+0.005231099
+Accuracy(ACC): 
+0.9908608
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+6
+****************************************
+Recall/Sensivity(TPR): 
+0
+Specifity/True negative rate(TNR): 
+0.9960983
+Precision/Positive predictive value(PPV): 
+0
+Negative predictive value(NPV): 
+0
+Miss rate/False negative rate(FNR): 
+1
+Fall-out/False positive rate(FPR): 
+0.003901742
+False discovery rate(FDR): 
+1
+False omission rate(FOR): 
+0.005178844
+Accuracy(ACC): 
+0.9909595
+----------------------------------------
+----------------------------------------
+****************************************
+*********** Iteration number ***********
+7
+****************************************
+Recall/Sensivity(TPR): 
+0.8841135
+Specifity/True negative rate(TNR): 
+0.1279461
+Precision/Positive predictive value(PPV): 
+0.8841135
+Negative predictive value(NPV): 
+0.8841135
+Miss rate/False negative rate(FNR): 
+0.1158865
+Fall-out/False positive rate(FPR): 
+0.8720539
+False discovery rate(FDR): 
+0.1298954
+False omission rate(FOR): 
+0.8562306
+Accuracy(ACC): 
+0.7846382
+----------------------------------------
+----------------------------------------
+Class tested: 
+7
